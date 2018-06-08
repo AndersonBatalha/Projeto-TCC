@@ -1,0 +1,158 @@
+\documentclass[12pt,article,a4paper,brazil,oldfontcommands,oneside]{abntex2}
+\usepackage{lmodern}			% Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{nomencl} 			% Lista de simbolos
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% para melhorias de justificação
+\usepackage{rotating}
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+
+% Configuração de Margens e espaços
+\setlrmarginsandblock{3cm}{3cm}{*}
+\setulmarginsandblock{3cm}{3cm}{*}
+\setlength{\ABNTEXcitacaorecuo}{1.8cm}
+\checkandfixthelayout
+\setlength{\parindent}{1.3cm}			% O tamanho do parágrafo é dado por:
+\setlength{\parskip}{0.2cm}  			% Controle do espaçamento entre um parágrafo e outro:
+%\SingleSpacing
+
+% Informações de dados para CAPA e FOLHA DE ROSTO
+\titulo{Análise de opiniões relacionadas a \\notícias em redes sociais}
+\autor{Anderson Pontes Batalha \and Orientador: Ivo Marcos Riegel}
+\local{Araquari -- SC -- Brasil}
+\data{Março de 2018}
+
+% Configurações de aparência do PDF final
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
+    	pdfsubject={Modelo de projeto e TCC},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex2}{modelo}{TCC}, 
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=blue,          	% color of internal links
+    	citecolor=blue,        		% color of links to bibliography
+    	filecolor=magenta,      	% color of file links
+		urlcolor=blue,
+		bookmarksdepth=4
+}
+\makeatother
+
+% compila o indice
+\makeindex
+
+
+% Início do documento
+\begin{document}
+
+\frenchspacing 		% Retira espaço extra obsoleto entre as frases.
+\maketitle			% página de titulo
+
+
+\section{Tema}
+
+O presente trabalho está voltado a análise de sentimentos de redes sociais. A ideia principal é extrair postagens do Facebook e Twitter relacionados a fatos recentes de grande repercussão e determinar a polaridade das mensagens.
+
+\subsection{Delimitação do Tema}
+
+Durante a realização do trabalho, pretende-se escolher fatos de grande repercussão nas redes sociais, relacionadas a esportes, política, entretenimento e tecnologia, realizando a coleta de dados referentes as mensagens dos usuários que emitiram algum tipo de opiniões sobre tais notícias. Em seguida, utilizar diferentes métodos para análise de sentimentos, e comparar os resultados obtidos por cada método, ressaltando suas vantagens e desvantagens, além de apresentar os resultados. 
+
+Este trabalho irá seguir a abordagem léxica, uma das formas de extrair sentimentos. Através de um dicionário de palavras, onde cada uma possui uma polaridade ou sentimento associado. \cite{taboada2011lexicon} Os métodos utilizados serão o Opinion Lexicon, SentiWordNet, LIWC, SenticNet, PANAS-t e Vader. \cite{benevenuto2015metodos}
+
+\section{Problema}
+
+A grande quantidade de dados gerados diariamente nas redes sociais se constitui como uma boa oportunidade de pesquisa relacionada a análise de sentimentos. As empresas utilizam as mídias sociais como parâmetro para saber qual a reputação da marca perante os seus consumidores, além da receptividade destes a um lançamento de produto ou uma nova campanha publicitária. Também é possível verificar as reações das pessoas a determinados acontecimentos e obter o sentimento expresso por cada mensagem.
+
+Apesar de existirem trabalhos relacionados a esta área, poucos se destinam a analisar sentimentos relacionados a notícias. Por isso, pretende-se estabelecer parâmetros para definir qual método de análise de sentimentos apresenta melhores resultados. 
+
+\section{Justificativa}
+
+Com o advento da Internet, e a popularização dos smartphones, as redes sociais vem ganhando cada vez mais espaço. Isso ocasionou um imenso volume de dados gerados pelas redes sociais. 
+
+Segundo \cite{socialmediatrends}, dados de 2017 dão conta de que 94\% das empresas estão presentes nas redes sociais, a maioria delas acredita que isso exerce um papel importante em seus negócios.
+
+O Facebook tem se consolidado como a maior rede social do mundo, com cerca de 1,94 bilhão de usuários em 2017 \cite{Facebook75:online}. Embora o Twitter tenha apresentado queda no número de usuários, vem se recuperando, e voltou a apresentar aumento, \cite{Twittert93:online} por isso ainda é uma importante mídia social, por permitir a comunicação em tempo real entre as pessoas.
+
+As mídias sociais permitem a interação entre seus usuários, onde é possível trocar mensagens, comunicar-se com outras pessoas com interesses em comum, além de emitir opiniões sobre os mais variados temas, como política, religião, esporte, música, entre outros.
+
+Empresas, governos e pesquisadores começaram a perceber o potencial destes dados, sendo possível analisar qual a reputação de uma marca em relação aos consumidores, ou até mesmo a recepção das pessoas a um determinado lançamento de produto.
+
+A análise de sentimentos tem se tornado uma grande oportunidade de estudo pelos motivos expostos acima.
+
+\section{Objetivos}
+\subsection{Objetivo Geral do Trabalho}
+
+Aplicar os métodos de detecção de sentimentos e definir qual obteve melhor desempenho utilizando os dados coletados.
+
+\subsection{Objetivos Específicos}
+
+\begin{itemize}
+    \item Selecionar as notícias que serão utilizadas como referência para a coleta de dados.
+    \item Pesquisar em artigos relacionados os principais métodos de detecção de sentimentos.
+    \item Definir um método para coleta dos dados, e por quanto tempo será realizada.
+    \item Realizar a limpeza e pré-processamento dos dados, retirando palavras que não exprimem sentimentos, além de gírias e abreviações.
+    \item Definir quais métricas para avaliação dos algoritmos de análise de sentimentos. Existem três métricas para comparação dos resultados: capacidade de predição correta da polaridade de cada mensagem, abrangência e concordância \cite{araujometodos}.
+    \item Utilizar aprendizagem de máquina não supervisionada, onde um dicionário léxico possui um conjunto de termos, e cada um dos termos está associado a um sentimento. Este método se apresenta mais eficiente em comparação com os métodos supervisionados. \cite{benevenuto2015metodos}
+\end{itemize}
+
+\section{Metodologia}
+
+\begin{enumerate}
+    \item Escolha das notícias
+    
+Será realizada a definição dos acontecimentos que servirão de base para coleta de dados.
+
+    \item Coleta dos dados
+
+Os dados serão coletados do Twitter e do Facebook. Serão utilizados a \href{https://developer.twitter.com/en/docs/api-reference-index}{API do Twitter} (através da biblioteca Python \href{http://www.tweepy.org/}{Tweepy}) e a \href{https://developers.facebook.com/docs/graph-api?locale=pt_BR}{Graph API}, do Facebook. Também serão desenvolvidos scripts para manipular com as APIs.
+    
+    \item Limpeza dos dados
+
+Ocorrerá a remoção de palavras ou expressões que possam interferir no processo de análise, tais como gírias e abreviações (stop words). Pretende-se usar bibliotecas Python como o NLTK (\url{https://www.nltk.org/}) e TextBlob (\url{http://textblob.readthedocs.io/en/dev/} para processamento de linguagem natural.
+
+    \item Análise de sentimentos
+
+Aplicação dos métodos de análise de sentimentos no conjunto de dados, e a definição de quais métricas a serem utilizadas para avaliar os resultados de cada método. 
+
+    \item Resultados
+
+Estabelecer uma comparação, com base nos resultados obtidos, de cada um métodos, apontando suas principais características, pontos fortes e fracos.
+
+\end{enumerate}
+
+
+\section{Cronograma}
+
+\begin{table}[ht]
+\centering
+\caption{Cronograma de atividades proposto}
+\label{tab:cronograma}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+\textbf{Atividade}                                                                              & \textbf{Mês 1} & \textbf{Mês 2} & \textbf{Mês 3} & \textbf{Mês 4} & \textbf{Mês 5} & \textbf{Mês 6} & \textbf{Mês 7} \\ \hline
+\begin{tabular}[c]{@{}c@{}}Levantamento \\ do tema\end{tabular} & \textbullet & \textbullet & & & & & \\ \hline
+\begin{tabular}[c]{@{}c@{}}Pesquisa \\ do tema\end{tabular} 
+& \textbullet & \textbullet & & & & & \\ \hline
+\begin{tabular}[c]{@{}c@{}}Escolha das\\ notícias\end{tabular}
+& & & \textbullet & & & & \\ \hline
+\begin{tabular}[c]{@{}c@{}}Coleta dos \\ dados\end{tabular} 
+& & & \textbullet & & & & \\ \hline
+\begin{tabular}[c]{@{}c@{}}Limpeza dos\\ dados\end{tabular}     & & & & \textbullet & & & \\ \hline
+\begin{tabular}[c]{@{}c@{}}Aplicação dos\\ métodos de \\ análise de \\ sentimentos\end{tabular}
+& & & & \textbullet & \textbullet & & \\ \hline
+Resultados                                                      & & & & & & \textbullet & \\ \hline
+Conclusão                                                       & & & & & & \textbullet & \\ \hline
+Apresentação                                                    & & & & & & & \textbullet \\ \hline
+\end{tabular}
+\end{table}
+
+
+\bibliography{refs}
+
+
+\end{document}
